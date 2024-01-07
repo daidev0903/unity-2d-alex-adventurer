@@ -9,8 +9,7 @@ ALEX ADVENTURER
 - [Introduction](#introduction)
 - [Features](#features)
 - [Installation](#installation)
-- [Contributing](#contributing)
-- [References](#references)
+- [Contributors](#contributors)
 
 ## Introduction
 
@@ -42,10 +41,11 @@ Get ready to become a hero and embark on an unforgettable journey to vanquish th
 - Outline any dependencies or prerequisites required to run the project.
 - Steps to set up the project locally.
 
-Example:
-
 ```bash
 git clone https://github.com/trongdaidu0903/unity-2d-alex-adventurer.git
 ```
 
-## References
+## Contributors
+- Group: 22
+- Name: TRAN TRONG DAI
+- Student ID: 20120449
