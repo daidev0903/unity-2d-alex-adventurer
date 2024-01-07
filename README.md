@@ -14,7 +14,19 @@ ALEX ADVENTURER
 
 ## Introduction
 
-Briefly introduce the project here. Include its purpose, goals, and any relevant information about the project's development.
+Welcome to our thrilling adventure game! In this game, you will play as Alex, a courageous hero on a mission to protect his village from the evil Morgoth by overcoming numerous challenges and obstacles.
+
+Once a peaceful and happy village, Alex's home has been threatened by the merciless Morgoth and his demonic horde. Morgoth, a fearsome and ruthless villain, has vowed to destroy the village and conquer the kingdom under his dark reign.
+
+Facing this catastrophe, Alex has risen to the occasion, determined to become the sole hero capable of saving the village. He must navigate dangerous levels, confront difficult trials, and ultimately face Morgoth himself in a journey of revenge and justice.
+
+The game will immerse you in a vibrant world with beautiful landscapes, ranging from dark forests to treacherous caves and haunted castles. You will undertake quests given by endearing and humane characters, uncovering Morgoth's past and the origins of his dark power.
+
+Alex will hone his combat skills, collect powerful weapons and equipment to combat the demons and minions of Morgoth. He will also encounter reliable companion characters who provide assistance and support in the battle against darkness.
+
+The storyline will unfold with dramatic twists and turns, delivering an exciting and suspenseful gaming experience. Ultimately, your interactions will determine the fate of the village and the world.
+
+Get ready to become a hero and embark on an unforgettable journey to vanquish the menacing Morgoth!
 
 ## Features
 - Level 1:
