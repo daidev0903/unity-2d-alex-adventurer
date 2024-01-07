@@ -295,7 +295,7 @@ GameObject:
   - component: {fileID: 817309705}
   - component: {fileID: 817309704}
   m_Layer: 0
-  m_Name: Tilemap Grid
+  m_Name: Environment
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
