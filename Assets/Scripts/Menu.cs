@@ -14,4 +14,16 @@ public class Menu : MonoBehaviour
         SceneManager.LoadScene(0);
         FindObjectOfType<GameSession>().ResetGameSession();
     }
+    public void SettingGame()
+    {
+
+    }
+    public void QuitGame()
+    {
+#if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+#else
+        Application.Quit();
+#endif
+    }
 }

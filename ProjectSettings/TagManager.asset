@@ -47,11 +47,11 @@ TagManager:
   - name: Climbing
     uniqueID: 1367255199
     locked: 0
-  - name: Enemy
-    uniqueID: 1283948825
-    locked: 0
   - name: Spikes
     uniqueID: 1202611871
+    locked: 0
+  - name: Enemy
+    uniqueID: 1283948825
     locked: 0
   - name: Player
     uniqueID: 2233088485

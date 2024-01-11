@@ -8,33 +8,29 @@ public class EnemyMovement : MonoBehaviour
 
     Rigidbody2D enemyRigidBody2D;
 
-    // Start is called before the first frame update
     void Start()
     {
         enemyRigidBody2D = GetComponent<Rigidbody2D>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (IsFacingRight())
-        {
             enemyRigidBody2D.velocity = new Vector2(moveSpeed, 0f);
-        }
         else
-        {
             enemyRigidBody2D.velocity = new Vector2(-moveSpeed, 0f);
-        }
     }
 
     private bool IsFacingRight()
     {
         return transform.localScale.x > 0;  
     }
+
     private void OnTriggerExit2D(Collider2D collision)
     {
-
-        transform.localScale = new Vector2(-(Mathf.Sign(enemyRigidBody2D.velocity.x)), 1f);
-        
+        //Call when enemy go out of the box collider
+        float newScaleX = -(Mathf.Sign(enemyRigidBody2D.velocity.x));
+        Vector3 currentScale = transform.localScale;
+        transform.localScale = new Vector3(newScaleX, currentScale.y, currentScale.z);
     }
 }

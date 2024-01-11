@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 5557346058777920065}
   - component: {fileID: 5557346058777920123}
   m_Layer: 10
-  m_Name: Skeleton
+  m_Name: Gross
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -31,8 +31,8 @@ Transform:
   m_GameObject: {fileID: 5557346058777920066}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -17.7, y: -2.54, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 10, y: 10, z: 10}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
@@ -69,18 +69,18 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.04, y: -0.22}
+  m_Offset: {x: -0.4, y: -0.43}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.5, y: 1.5}
+    oldSize: {x: 1.4, y: 0.93}
     newSize: {x: 0.75, y: 0.625}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.3, y: 0.1}
+  m_Size: {x: 0.3, y: 0.05}
   m_EdgeRadius: 0
 --- !u!95 &5557346058777920070
 Animator:
@@ -92,7 +92,7 @@ Animator:
   m_GameObject: {fileID: 5557346058777920066}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 7052c8b4bb06f644ea75e62b72afedbd, type: 2}
+  m_Controller: {fileID: 9100000, guid: 6db71a80ec2350e499d4f5b7b7c373f6, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -142,11 +142,11 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1283948825
-  m_SortingLayer: 3
+  m_SortingLayer: 4
   m_SortingOrder: 0
-  m_Sprite: {fileID: 4723107735738678597, guid: 1018b0ba13578bf459bd254ae1a2be99, type: 3}
+  m_Sprite: {fileID: -4551999497626061999, guid: 38e26291822c9b9479504c21a5a98126, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
+  m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 0.75, y: 0.625}
@@ -187,8 +187,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.04, y: -0.02}
-  m_Size: {x: 0.4, y: 0.5}
+  m_Offset: {x: -0.4, y: -0.2}
+  m_Size: {x: 0.3, y: 0.5}
   m_Direction: 0
 --- !u!50 &5557346058777920065
 Rigidbody2D:

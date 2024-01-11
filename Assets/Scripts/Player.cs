@@ -2,37 +2,37 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Threading.Tasks;
+using System;
 
 public class Player : MonoBehaviour
-{   
-    // Config
-    [SerializeField] float runSpeed = 5f;
-    [SerializeField] float jumpSpeed = 5f;
-    [SerializeField] float climbSpeed = 5f;
-    [SerializeField] Vector2 deathKick = new Vector2(25f, 25f);
+{
+    [Header("Config")]
+    [SerializeField] private float runSpeed = 5f;
+    [SerializeField] private float jumpSpeed = 5f;
+    [SerializeField] private float climbSpeed = 5f;
+    [SerializeField] private Vector2 deathKick = new Vector2(25f, 25f);
 
-    // State
-    bool isAlive = true;
+    [Header("State")]
+    [SerializeField] private bool isAlive = true;
 
-    // Cached component references
-    Rigidbody2D myRigidBody;
-    Animator myAnimator;
-    BoxCollider2D myFeetCollider2D;
-    CapsuleCollider2D myBodyCollider2D;
+    [Header("Cached References")]
+    private Rigidbody2D playerRigidBody;
+    private Animator playerAnimator;
+    private BoxCollider2D playerBoxCollider2D;
+    private CapsuleCollider2D playerCapsuleCollider2D;
 
-    // Start is called before the first frame update
-    void Start()
+    private void Awake()
     {
-        myRigidBody = GetComponent<Rigidbody2D>();
-        myAnimator = GetComponent<Animator>();
-        myFeetCollider2D = GetComponent<BoxCollider2D>();
-        myBodyCollider2D = GetComponent<CapsuleCollider2D>();
+        playerRigidBody = GetComponent<Rigidbody2D>();
+        playerAnimator = GetComponent<Animator>();
+        playerBoxCollider2D = GetComponent<BoxCollider2D>();
+        playerCapsuleCollider2D = GetComponent<CapsuleCollider2D>();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        if (!isAlive) { return; }
+        if (!isAlive)
+            return;
 
         Run();
         Jump();
@@ -44,68 +44,114 @@ public class Player : MonoBehaviour
     private void Run()
     {
         float controlThrow = Input.GetAxis("Horizontal");
-        Vector2 playerVelocity = new Vector2(controlThrow * runSpeed, myRigidBody.velocity.y);
-        myRigidBody.velocity = playerVelocity;
-        
-        bool playerMoveLeftRight = Mathf.Abs(myRigidBody.velocity.x) > Mathf.Epsilon;
-        myAnimator.SetBool("Run", playerMoveLeftRight);
+        Vector2 playerVelocity = new Vector2(controlThrow * runSpeed, playerRigidBody.velocity.y);
+        playerRigidBody.velocity = playerVelocity;
+
+        bool playerMoveLeftRight = Mathf.Abs(playerRigidBody.velocity.x) > Mathf.Epsilon;
+        playerAnimator.SetBool("Run", playerMoveLeftRight);
     }
 
     private void Jump()
     {
-        if (!myFeetCollider2D.IsTouchingLayers(LayerMask.GetMask("Ground")))
-        {
+        if (!playerBoxCollider2D.IsTouchingLayers(LayerMask.GetMask("Ground")))
             return;
-        }
 
-        if (Input.GetButton("Jump"))
+        if (Input.GetButtonDown("Jump"))
         {
-            //Vector2 jumpVelocity = new Vector2(0f, jumpSpeed);
-            //myRigidBody.velocity += jumpVelocity;
-            myRigidBody.velocity = Vector2.zero;
-            Vector2 jumpVelocity = new Vector2(0, jumpSpeed);
-            myRigidBody.AddForce(jumpVelocity, ForceMode2D.Impulse);
+            playerRigidBody.velocity = Vector2.zero;
+            playerAnimator.SetBool("Jump", true);
+            playerRigidBody.AddForce(Vector2.up * jumpSpeed, ForceMode2D.Impulse);
         }
     }
+
     private void FlipSprite()
     {
-        bool playerMoveLeftRight = Mathf.Abs(myRigidBody.velocity.x) > Mathf.Epsilon;
+        bool playerMoveLeftRight = Mathf.Abs(playerRigidBody.velocity.x) > Mathf.Epsilon;
         if (playerMoveLeftRight)
         {
-            transform.localScale = new Vector2(Mathf.Sign(myRigidBody.velocity.x), 1f);
+            transform.localScale = new Vector2(Mathf.Sign(playerRigidBody.velocity.x), 1f);
         }
     }
 
     private void Climb()
     {
-        if (!myFeetCollider2D.IsTouchingLayers(LayerMask.GetMask("Climbing")))
+        if (!playerBoxCollider2D.IsTouchingLayers(LayerMask.GetMask("Climbing")))
         {
-            myAnimator.SetBool("Climb", false);
+            playerAnimator.SetBool("Climb", false);
             return;
         }
 
         float controlThrow = Input.GetAxis("Vertical");
-        Vector2 climbVelocity = new Vector2(myRigidBody.velocity.x, controlThrow * climbSpeed);
-        myRigidBody.velocity = climbVelocity;
+        Vector2 climbVelocity = new Vector2(playerRigidBody.velocity.x, controlThrow * climbSpeed);
+        playerRigidBody.velocity = climbVelocity;
 
-        bool playerMoveUpDown = Mathf.Abs(myRigidBody.velocity.y) > Mathf.Epsilon;
-        myAnimator.SetBool("Climb", playerMoveUpDown);
+        bool playerMoveUpDown = Mathf.Abs(playerRigidBody.velocity.y) > Mathf.Epsilon;
+        playerAnimator.SetBool("Climb", playerMoveUpDown);
     }
 
     private void Die()
     {
-        if (myBodyCollider2D.IsTouchingLayers(LayerMask.GetMask("Enemy", "Spikes")) || myFeetCollider2D.IsTouchingLayers(LayerMask.GetMask("Enemy", "Spikes")))
+        if(IsTouchingMonster() || IsTouchingSpike() || IsFalling())
         {
             isAlive = false;
-            myAnimator.SetTrigger("Die");
-            GetComponent<Rigidbody2D>().velocity = deathKick;
-            delayReset();
+            playerAnimator.SetTrigger("Die");
+            playerRigidBody.velocity = deathKick;
+            _ = DelayReset();
+        }
+     
+        /*if (playerCapsuleCollider2D.IsTouchingLayers(LayerMask.GetMask("Enemy", "Spikes")))
+        {
+            
+        }
+
+        if (playerBoxCollider2D.IsTouchingLayers(LayerMask.GetMask("Enemy", "Spikes")))
+        {
+            isAlive = false;
+            playerAnimator.SetTrigger("Die");
+            playerRigidBody.velocity = deathKick;
+            _ = DelayReset();
+        }*/
+    }
+
+    private bool IsFalling()
+    {
+        if (playerBoxCollider2D.IsTouchingLayers(LayerMask.GetMask("Water")))
+        {
+            return true;
+        }
+        else
+        {
+            return false;
         }
     }
 
-    private async Task delayReset()
+    private bool IsTouchingSpike()
+    {
+        if (playerBoxCollider2D.IsTouchingLayers(LayerMask.GetMask("Spikes")))
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    private bool IsTouchingMonster()
+    {
+        if(playerCapsuleCollider2D.IsTouchingLayers(LayerMask.GetMask("Enemy")))
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    private async Task DelayReset()
     {
         await Task.Delay(500);
-        FindObjectOfType<GameSession>().ProcessPlayerDeath();
+        FindObjectOfType<GameSession>()?.ProcessPlayerDeath();
     }
 }
