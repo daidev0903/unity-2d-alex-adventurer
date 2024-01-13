@@ -54,13 +54,21 @@ public class Player : MonoBehaviour
     private void Jump()
     {
         if (!playerBoxCollider2D.IsTouchingLayers(LayerMask.GetMask("Ground")))
+        {
             return;
-
+        }
+        else if(playerAnimator.GetBool("Jump"))
+        {
+            Debug.Log("Player rounded");
+            playerAnimator.SetBool("Jump", false);
+        }
+            
         if (Input.GetButtonDown("Jump"))
         {
+            Debug.Log("Jump Called");
             playerRigidBody.velocity = Vector2.zero;
-            playerAnimator.SetBool("Jump", true);
             playerRigidBody.AddForce(Vector2.up * jumpSpeed, ForceMode2D.Impulse);
+            playerAnimator.SetBool("Jump", true);
         }
     }
 
@@ -98,19 +106,6 @@ public class Player : MonoBehaviour
             playerRigidBody.velocity = deathKick;
             _ = DelayReset();
         }
-     
-        /*if (playerCapsuleCollider2D.IsTouchingLayers(LayerMask.GetMask("Enemy", "Spikes")))
-        {
-            
-        }
-
-        if (playerBoxCollider2D.IsTouchingLayers(LayerMask.GetMask("Enemy", "Spikes")))
-        {
-            isAlive = false;
-            playerAnimator.SetTrigger("Die");
-            playerRigidBody.velocity = deathKick;
-            _ = DelayReset();
-        }*/
     }
 
     private bool IsFalling()

@@ -99,7 +99,7 @@ SpriteRenderer:
   m_SortingLayerID: -2061878811
   m_SortingLayer: 5
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 2498437da3c7e884cb17e5b169f27314, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ae297123f091bbf4e8f1835eb98fb293, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -233,3 +233,4 @@ MonoBehaviour:
   jumpSpeed: 20
   climbSpeed: 8
   deathKick: {x: 25, y: 25}
+  isAlive: 1

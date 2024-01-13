@@ -16,7 +16,7 @@ public class Menu : MonoBehaviour
     }
     public void SettingGame()
     {
-
+        SceneManager.LoadScene(4);
     }
     public void QuitGame()
     {
@@ -25,5 +25,9 @@ public class Menu : MonoBehaviour
 #else
         Application.Quit();
 #endif
+    }
+    public void BackToMainMenu()
+    {
+        SceneManager.LoadScene(0);
     }
 }

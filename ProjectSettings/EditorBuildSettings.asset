@@ -12,12 +12,15 @@ EditorBuildSettings:
     path: Assets/Scenes/Level 1.unity
     guid: b0218b1142902d24fa1fa513ca2f0dea
   - enabled: 0
-    path: Assets/Scenes/Level 2.unity
+    path: Assets/Scenes/Level 2_.unity
     guid: 128b048169dc41742b4a46c020aa96b0
   - enabled: 1
-    path: Assets/Scenes/Ice Map.unity
+    path: Assets/Scenes/Level 2.unity
     guid: 5671796c64df60246aa98d171fa7ac98
   - enabled: 1
     path: Assets/Scenes/Final.unity
     guid: 3f62981d9f695b544b7af446a3a30376
+  - enabled: 1
+    path: Assets/Scenes/Game Setting.unity
+    guid: 4de34c8cecdc1ec40b809c5e67bd6cad
   m_configObjects: {}
