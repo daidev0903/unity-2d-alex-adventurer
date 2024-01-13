@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -80,5 +81,22 @@ public class GameSession : MonoBehaviour
     {
         livesText.text = "";
         scoresText.text = "";
+    }
+
+    internal int GetScores()
+    {
+        return scores;
+    }
+
+    internal void BonusLive()
+    {
+        playerLives++;
+        livesText.text = playerLives.ToString();
+    }
+
+    internal void SetScore(int v)
+    {
+        scores = v;
+        scoresText.text = scores.ToString();
     }
 }

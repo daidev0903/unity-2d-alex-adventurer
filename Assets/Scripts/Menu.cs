@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class Menu : MonoBehaviour
 {
+    public float volumeChangeAmount = 0.1f;
+
     public void StartLevel()
     {
         SceneManager.LoadScene(1);
@@ -29,5 +31,16 @@ public class Menu : MonoBehaviour
     public void BackToMainMenu()
     {
         SceneManager.LoadScene(0);
+    }
+
+
+    public void IncreaseVolume()
+    {
+        AudioListener.volume += volumeChangeAmount;
+    }
+
+    public void DecreaseVolume()
+    {
+        AudioListener.volume -= volumeChangeAmount;
     }
 }
