@@ -22,7 +22,7 @@ public class Player : MonoBehaviour
     private Animator playerAnimator;
     private BoxCollider2D collision;
     private CapsuleCollider2D playerCapsuleCollider2D;
-    private bool canDoubleJump = true;
+    private bool canDoubleJump = false;
     private int jumpCount = 0;
 
     private void Awake()
