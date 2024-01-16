@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Threading.Tasks;
@@ -20,14 +20,16 @@ public class Player : MonoBehaviour
     [Header("Cached References")]
     private Rigidbody2D playerRigidBody;
     private Animator playerAnimator;
-    private BoxCollider2D playerBoxCollider2D;
+    private BoxCollider2D collision;
     private CapsuleCollider2D playerCapsuleCollider2D;
+    private bool canDoubleJump = true;
+    private int jumpCount = 0;
 
     private void Awake()
     {
         playerRigidBody = GetComponent<Rigidbody2D>();
         playerAnimator = GetComponent<Animator>();
-        playerBoxCollider2D = GetComponent<BoxCollider2D>();
+        collision = GetComponent<BoxCollider2D>();
         playerCapsuleCollider2D = GetComponent<CapsuleCollider2D>();
     }
 
@@ -41,6 +43,12 @@ public class Player : MonoBehaviour
         FlipSprite();
         Climb();
         Die();
+
+        if(FindObjectOfType<GameSession>().GetScores() > 200)
+        {
+            canDoubleJump = true;
+            FindObjectOfType<GameSession>().SubtractScore(200);
+        }
     }
 
     private void Run()
@@ -55,23 +63,39 @@ public class Player : MonoBehaviour
 
     private void Jump()
     {
-        if (!playerBoxCollider2D.IsTouchingLayers(LayerMask.GetMask("Ground")))
-        {
-            return;
-        }
-        else if(playerAnimator.GetBool("Jump"))
-        {
-            Debug.Log("Player rounded");
-            playerAnimator.SetBool("Jump", false);
-        }
-            
         if (Input.GetButtonDown("Jump"))
         {
-            Debug.Log("Jump Called");
-            playerRigidBody.velocity = Vector2.zero;
-            playerRigidBody.AddForce(Vector2.up * jumpSpeed, ForceMode2D.Impulse);
-            playerAnimator.SetBool("Jump", true);
-            AudioSource.PlayClipAtPoint(jumpAudio, Camera.main.transform.position);
+            if (jumpCount == 0)
+            {
+                playerRigidBody.velocity = Vector2.zero;
+                playerRigidBody.AddForce(Vector2.up * jumpSpeed, ForceMode2D.Impulse);
+                playerAnimator.SetBool("Jump", true);
+                AudioSource.PlayClipAtPoint(jumpAudio, Camera.main.transform.position);
+
+                jumpCount++;
+
+                Debug.Log("Jump Called");
+            }
+            else if (jumpCount == 1 && canDoubleJump)
+            {
+                playerRigidBody.velocity = Vector2.zero;
+                playerRigidBody.AddForce(Vector2.up * jumpSpeed, ForceMode2D.Impulse);
+                playerAnimator.SetBool("Jump", true);
+                AudioSource.PlayClipAtPoint(jumpAudio, Camera.main.transform.position);
+
+                Debug.Log("Double Jump Called");
+            }
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (this.collision.IsTouchingLayers(LayerMask.GetMask("Ground")))
+        {
+            jumpCount = 0;
+            playerAnimator.SetBool("Jump", false);
+
+            Debug.Log("Player rounded");
         }
     }
 
@@ -86,7 +110,7 @@ public class Player : MonoBehaviour
 
     private void Climb()
     {
-        if (!playerBoxCollider2D.IsTouchingLayers(LayerMask.GetMask("Climbing")))
+        if (!collision.IsTouchingLayers(LayerMask.GetMask("Climbing")))
         {
             playerAnimator.SetBool("Climb", false);
             return;
@@ -114,7 +138,7 @@ public class Player : MonoBehaviour
 
     private bool IsFalling()
     {
-        if (playerBoxCollider2D.IsTouchingLayers(LayerMask.GetMask("Water")))
+        if (collision.IsTouchingLayers(LayerMask.GetMask("Water")))
             return true;
         else
             return false;
@@ -122,7 +146,7 @@ public class Player : MonoBehaviour
 
     private bool IsTouchingSpike()
     {
-        if (playerBoxCollider2D.IsTouchingLayers(LayerMask.GetMask("Spikes")))
+        if (collision.IsTouchingLayers(LayerMask.GetMask("Spikes")))
             return true;
         else
             return false;

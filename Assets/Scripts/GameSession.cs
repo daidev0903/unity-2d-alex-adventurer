@@ -99,4 +99,9 @@ public class GameSession : MonoBehaviour
         scores = v;
         scoresText.text = scores.ToString();
     }
+
+    internal void SubtractScore(int v)
+    {
+        SetScore(scores - v);
+    }
 }
