@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 5557346058777920071}
   - component: {fileID: 5557346058777920064}
   - component: {fileID: 5557346058777920065}
-  - component: {fileID: 5557346058777920123}
+  - component: {fileID: 3557182631397105448}
   m_Layer: 10
   m_Name: Morgoth
   m_TagString: Untagged
@@ -144,7 +144,7 @@ SpriteRenderer:
   m_SortingLayerID: 1283948825
   m_SortingLayer: 4
   m_SortingOrder: 0
-  m_Sprite: {fileID: 4723107735738678597, guid: 6fc66c021eec74942b4e71a3fde4dc04, type: 3}
+  m_Sprite: {fileID: -6329420634031446844, guid: d6b8c791d8089b44a9a8c5a7423bd180, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 1
   m_FlipY: 0
@@ -187,9 +187,9 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.012413204, y: -0.007447839}
-  m_Size: {x: 0.3, y: 0.5}
-  m_Direction: 0
+  m_Offset: {x: -0.2, y: -0.007447839}
+  m_Size: {x: 0.8, y: 0.5}
+  m_Direction: 1
 --- !u!50 &5557346058777920065
 Rigidbody2D:
   serializedVersion: 4
@@ -217,7 +217,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &5557346058777920123
+--- !u!114 &3557182631397105448
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -226,7 +226,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 5557346058777920066}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 159855cd6adb7914a8696d6b08befe7f, type: 3}
+  m_Script: {fileID: 11500000, guid: 0fad9b0693432c24cb21a70dc5eba227, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 1

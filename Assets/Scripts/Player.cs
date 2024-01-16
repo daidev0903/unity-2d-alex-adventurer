@@ -111,37 +111,25 @@ public class Player : MonoBehaviour
     private bool IsFalling()
     {
         if (playerBoxCollider2D.IsTouchingLayers(LayerMask.GetMask("Water")))
-        {
             return true;
-        }
         else
-        {
             return false;
-        }
     }
 
     private bool IsTouchingSpike()
     {
         if (playerBoxCollider2D.IsTouchingLayers(LayerMask.GetMask("Spikes")))
-        {
             return true;
-        }
         else
-        {
             return false;
-        }
     }
 
     private bool IsTouchingMonster()
     {
         if(playerCapsuleCollider2D.IsTouchingLayers(LayerMask.GetMask("Enemy")))
-        {
             return true;
-        }
         else
-        {
             return false;
-        }
     }
 
     private async Task DelayReset()
