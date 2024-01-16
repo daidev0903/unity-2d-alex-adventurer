@@ -4,8 +4,11 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 public class LevelExit : MonoBehaviour
 {
+    [SerializeField] AudioClip checkpointAudio;
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        AudioSource.PlayClipAtPoint(checkpointAudio, Camera.main.transform.position);
         var currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
 
         if (currentSceneIndex == 2)

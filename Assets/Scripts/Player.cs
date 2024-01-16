@@ -11,6 +11,8 @@ public class Player : MonoBehaviour
     [SerializeField] private float jumpSpeed = 5f;
     [SerializeField] private float climbSpeed = 5f;
     [SerializeField] private Vector2 deathKick = new Vector2(25f, 25f);
+    [SerializeField] AudioClip deathAudio;
+    [SerializeField] AudioClip jumpAudio;
 
     [Header("State")]
     [SerializeField] private bool isAlive = true;
@@ -69,6 +71,7 @@ public class Player : MonoBehaviour
             playerRigidBody.velocity = Vector2.zero;
             playerRigidBody.AddForce(Vector2.up * jumpSpeed, ForceMode2D.Impulse);
             playerAnimator.SetBool("Jump", true);
+            AudioSource.PlayClipAtPoint(jumpAudio, Camera.main.transform.position);
         }
     }
 
@@ -105,6 +108,7 @@ public class Player : MonoBehaviour
             playerAnimator.SetTrigger("Die");
             playerRigidBody.velocity = deathKick;
             _ = DelayReset();
+            AudioSource.PlayClipAtPoint(deathAudio, Camera.main.transform.position);
         }
     }
 

@@ -8749,9 +8749,17 @@ PrefabInstance:
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4165664323577387746, guid: 569406d4876592d4fb82076e9a4c724c, type: 3}
+      propertyPath: jumpAudio
+      value: 
+      objectReference: {fileID: 8300000, guid: 14794fa7e7583ee4bba5299b1eda0830, type: 3}
+    - target: {fileID: 4165664323577387746, guid: 569406d4876592d4fb82076e9a4c724c, type: 3}
       propertyPath: jumpSpeed
       value: 18
       objectReference: {fileID: 0}
+    - target: {fileID: 4165664323577387746, guid: 569406d4876592d4fb82076e9a4c724c, type: 3}
+      propertyPath: deathAudio
+      value: 
+      objectReference: {fileID: 8300000, guid: bd871f668e2747145956f89e8a4b9f83, type: 3}
     - target: {fileID: 4165664323577387746, guid: 569406d4876592d4fb82076e9a4c724c, type: 3}
       propertyPath: deathKick.x
       value: 0
@@ -8760,6 +8768,10 @@ PrefabInstance:
       propertyPath: deathKick.y
       value: 15
       objectReference: {fileID: 0}
+    - target: {fileID: 4165664323577387746, guid: 569406d4876592d4fb82076e9a4c724c, type: 3}
+      propertyPath: checkpointAudio
+      value: 
+      objectReference: {fileID: 8300000, guid: cfce0cea076109f478783201b2a9f57f, type: 3}
     - target: {fileID: 4165664323577387772, guid: 569406d4876592d4fb82076e9a4c724c, type: 3}
       propertyPath: m_Name
       value: Player
@@ -17012,7 +17024,7 @@ GameObject:
   - component: {fileID: 1849444651}
   - component: {fileID: 1849444650}
   m_Layer: 12
-  m_Name: Exit Sign
+  m_Name: Check Point
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -17097,6 +17109,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee004b424c1288a42981d22184071cac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  checkpointAudio: {fileID: 8300000, guid: 8726fc13a09dc3240ae5ac1741850f39, type: 3}
 --- !u!61 &1849444651
 BoxCollider2D:
   m_ObjectHideFlags: 0

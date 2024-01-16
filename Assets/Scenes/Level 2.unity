@@ -18605,7 +18605,7 @@ GameObject:
   - component: {fileID: 1849444651}
   - component: {fileID: 1849444650}
   m_Layer: 12
-  m_Name: Exit Sign
+  m_Name: Check Point
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -18690,6 +18690,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee004b424c1288a42981d22184071cac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  checkpointAudio: {fileID: 8300000, guid: 8726fc13a09dc3240ae5ac1741850f39, type: 3}
 --- !u!61 &1849444651
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -36137,11 +36138,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4165664323577387745, guid: 569406d4876592d4fb82076e9a4c724c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 86.97
+      value: 81.13
       objectReference: {fileID: 0}
     - target: {fileID: 4165664323577387745, guid: 569406d4876592d4fb82076e9a4c724c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 15.42
+      value: -2.31
       objectReference: {fileID: 0}
     - target: {fileID: 4165664323577387745, guid: 569406d4876592d4fb82076e9a4c724c, type: 3}
       propertyPath: m_LocalPosition.z
@@ -36176,6 +36177,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4165664323577387746, guid: 569406d4876592d4fb82076e9a4c724c, type: 3}
+      propertyPath: jumpAudio
+      value: 
+      objectReference: {fileID: 8300000, guid: 14794fa7e7583ee4bba5299b1eda0830, type: 3}
+    - target: {fileID: 4165664323577387746, guid: 569406d4876592d4fb82076e9a4c724c, type: 3}
       propertyPath: jumpSpeed
       value: 18
       objectReference: {fileID: 0}
@@ -36184,6 +36189,10 @@ PrefabInstance:
       value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4165664323577387746, guid: 569406d4876592d4fb82076e9a4c724c, type: 3}
+      propertyPath: deathAudio
+      value: 
+      objectReference: {fileID: 8300000, guid: bd871f668e2747145956f89e8a4b9f83, type: 3}
+    - target: {fileID: 4165664323577387746, guid: 569406d4876592d4fb82076e9a4c724c, type: 3}
       propertyPath: deathKick.x
       value: 5
       objectReference: {fileID: 0}
@@ -36191,6 +36200,10 @@ PrefabInstance:
       propertyPath: deathKick.y
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 4165664323577387746, guid: 569406d4876592d4fb82076e9a4c724c, type: 3}
+      propertyPath: checkpointAudio
+      value: 
+      objectReference: {fileID: 8300000, guid: cfce0cea076109f478783201b2a9f57f, type: 3}
     - target: {fileID: 4165664323577387772, guid: 569406d4876592d4fb82076e9a4c724c, type: 3}
       propertyPath: m_Name
       value: Player
@@ -36310,11 +36323,11 @@ PrefabInstance:
       objectReference: {fileID: 1532949725}
     - target: {fileID: 8029972119230215510, guid: d50c98b20b6d7504e94ffba006b1a6e7, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3.7269986
+      value: -9.567002
       objectReference: {fileID: 0}
     - target: {fileID: 8029972119230215510, guid: d50c98b20b6d7504e94ffba006b1a6e7, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 12.560508
+      value: -5.169492
       objectReference: {fileID: 0}
     - target: {fileID: 8029972119230215511, guid: d50c98b20b6d7504e94ffba006b1a6e7, type: 3}
       propertyPath: m_Follow
@@ -36326,11 +36339,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8029972119512263684, guid: d50c98b20b6d7504e94ffba006b1a6e7, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -6.029999
+      value: -11.870003
       objectReference: {fileID: 0}
     - target: {fileID: 8029972119512263684, guid: d50c98b20b6d7504e94ffba006b1a6e7, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 15.62
+      value: -2.11
       objectReference: {fileID: 0}
     - target: {fileID: 8029972119512263931, guid: d50c98b20b6d7504e94ffba006b1a6e7, type: 3}
       propertyPath: orthographic size
@@ -36390,11 +36403,11 @@ PrefabInstance:
       objectReference: {fileID: 880264080}
     - target: {fileID: 8029972120588981918, guid: d50c98b20b6d7504e94ffba006b1a6e7, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3.7269986
+      value: -9.567002
       objectReference: {fileID: 0}
     - target: {fileID: 8029972120588981918, guid: d50c98b20b6d7504e94ffba006b1a6e7, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 12.560508
+      value: -5.169492
       objectReference: {fileID: 0}
     - target: {fileID: 8029972120588981919, guid: d50c98b20b6d7504e94ffba006b1a6e7, type: 3}
       propertyPath: m_BoundingShape2D
