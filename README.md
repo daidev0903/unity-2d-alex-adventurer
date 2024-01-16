@@ -28,12 +28,16 @@ The storyline will unfold with dramatic twists and turns, delivering an exciting
 Get ready to become a hero and embark on an unforgettable journey to vanquish the menacing Morgoth!
 
 ## Features
+- Main Menu:
+![image](https://github.com/trongdaidu0903/unity-2d-alex-adventurer/blob/dev/Resource/Screenshots/start%20game.png)
 - Level 1:
-![image](https://github.com/trongdaidu0903/unity-2d-alex-adventurer/assets/75366191/1136f522-dafe-4080-bd1f-4f7bfdd7332e)
+![image](https://github.com/trongdaidu0903/unity-2d-alex-adventurer/blob/dev/Resource/Screenshots/level1.png)
 - Level 2:
-![image](https://github.com/trongdaidu0903/unity-2d-alex-adventurer/assets/75366191/174520cf-72af-4d25-be7c-b0358ec0e3c5)
+![image](https://github.com/trongdaidu0903/unity-2d-alex-adventurer/blob/dev/Resource/Screenshots/level2.png)
 - Level 3:
-![image](https://github.com/trongdaidu0903/unity-2d-alex-adventurer/assets/75366191/cc0bc5b2-bcaf-44c4-904c-247bd38aa1e2)
+![image](https://github.com/trongdaidu0903/unity-2d-alex-adventurer/blob/dev/Resource/Screenshots/level3.png)
+- Game Over:
+![image](https://github.com/trongdaidu0903/unity-2d-alex-adventurer/blob/dev/Resource/Screenshots/game%20over.png)
 
 ## Installation
 
